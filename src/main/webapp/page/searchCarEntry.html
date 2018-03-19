@@ -1,0 +1,92 @@
+<!-- <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%> -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" type="text/css" href="../css/searchCarEntry.css">
+  <body>
+	<div id="searchCarEntry">
+		<div id="title">
+			<p id="title1">马上寻找你的车辆</p>	
+			<p id="title2">输入车牌号或者车位号立即寻车</p>
+		</div>
+		<div id="entryBox">
+			<input id="searchCarText" type="text" name="searchCarText" placeholder="输入车牌号(仅输入字母数字即可)或者车位号">
+			<input id="searchCarButton" type="button" name="searchCarButton" value="立即寻车">
+		</div>
+		<div id="lable">
+			<div id="list">
+				<div class="list" id="listKeyboard" style="background-color: #333A42;"><p>键盘KEYBOARD A</p></div><!-- 默认 -->
+				<div class="list" id="listOption"><p>选项卡OPTION B</p></div>
+				<div class="list" id="listMap"><p>地图MAP C</p></div>
+			</div>
+			<div id="main">
+				<div id="keyboard">
+					<div id="row1" class="row">
+						<div class="num">1</div>
+						<div class="num">2</div>
+						<div class="num">3</div>
+						<div class="num">4</div>
+						<div class="num">5</div>
+						<div class="num">6</div>
+						<div class="num">7</div>
+						<div class="num">8</div>
+						<div class="num">9</div>
+						<div class="num">0</div>
+					</div>
+					<div id="row2" class="row">
+						<div class="num">Q</div>
+						<div class="num">W</div>
+						<div class="num">E</div>
+						<div class="num">R</div>
+						<div class="num">T</div>
+						<div class="num">Y</div>
+						<div class="num">U</div>
+						<div class="num">I</div>
+						<div class="num">O</div>
+						<div class="num">P</div>
+					</div>
+					<div id="row3" class="row">
+						<div class="num">A</div>
+						<div class="num">S</div>
+						<div class="num">D</div>
+						<div class="num">F</div>
+						<div class="num">G</div>
+						<div class="num">H</div>
+						<div class="num">J</div>
+						<div class="num">K</div>
+						<div class="num">L</div>
+					</div>
+					<div id="row4" class="row">
+						<div class="num">Z</div>
+						<div class="num">X</div>
+						<div class="num">C</div>
+						<div class="num">V</div>
+						<div class="num">B</div>
+						<div class="num">N</div>
+						<div class="num">M</div>
+						<div class="backspace num"><img src="../pic/backspace.jpg" style="margin: 10%;"></div>
+					</div>
+				</div>
+				<div id="option" hidden="hidden">
+					<table>
+						<tr>
+							<th>车牌</th>
+							<th>车位</th>
+						</tr>
+					</table>
+				</div>
+				<div id="map" hidden="hidden"></div>
+			</div>
+		</div>
+	</div>
+  <script type="text/javascript" src="../lib/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="../lib/ol-debug.js"></script>
+  <script type="text/javascript" src="../js/keyboard.js"></script>
+  <script type="text/javascript" src="../js/map.js"></script>
+  <script type="text/javascript" src="../js/searchCarEntry.js"></script>
+  </body>
+</html>

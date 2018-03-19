@@ -1,0 +1,52 @@
+<!-- <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%> -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" type="text/css" href="../css/searchCarDevice.css">
+  <body>
+	<div id="searchCarDevice">
+		<div id="title">
+			<p id="title1">开始寻车机配置</p>	
+			<p id="title2">从下方开始配置寻车机</p>
+		</div>
+		<div id="lable">
+			<div id="inputLable">
+				<div id="textInput">
+					<div><p>名称:</p><input id="name" type="text" name="name"></div>
+					<div><p>ip:</p><input id="ip" type="text" name="ip"></div>
+					<div><p>在离线:</p><select id="isOnline" disabled="disabled">
+						<option value="1">在线</option>
+						<option  value="0">离线</option>
+						<option  value="2" selected="selected">全部</option>
+					</select></div>
+				</div>
+				<div id="buttonInput">
+					<div id="changeButton">
+						<input type="button" id="save" value="保存" style="background-color: #24AFB2;"><!-- 默认这个 -->
+						<input type="button" id="search" value="查询" >
+					</div>
+					<p>上方拨动选择查询/保存按钮</p>
+					<input id="searchButton" class="saveOrSearch" type="button" name="saveOrSearch" value="查询"style="display: none;">
+					<input id="saveButton" class="saveOrSearch" type="button" name="saveOrSearch" value="保存" ><!-- 默认这个 -->
+				</div>
+
+			</div>
+			<div id="showLable">
+				<table>
+					<tr>
+						<th>名称</th>
+						<th>IP</th>
+						<th>在离线</th>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+  <script type="text/javascript" src="../lib/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="../js/searchCarDevice.js"></script>
+  </body>
+</html>

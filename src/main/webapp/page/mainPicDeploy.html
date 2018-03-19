@@ -1,0 +1,30 @@
+<!-- <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%> -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <link rel="stylesheet" type="text/css" href="../css/mainPicDeploy.css">
+  <body>
+	<div id="mainPicDeploy">
+		<div id="title">
+			<p id="title1">开始配置主图</p>	
+			<p id="title2">从下方按钮开始上传主图</p>
+		</div>
+		<div id="lable">
+		<div id="map"></div>
+		</div>
+		<div id="bottom">
+			<input id="uploadPic" type="button" name="uploadPic" value="上传主图">
+			<!-- <input id="changePic" type="button" name="changePic" value="更换主图">
+			<input id="nextStep" type="button" name="nextStep" value="下一步"> -->
+			<input id="getPic" type="file" name="imgFile" onchange="changePic()" hidden="hidden">
+		</div>
+	</div>
+  <script type="text/javascript" src="../lib/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="../lib/ol-debug.js"></script>
+  <script type="text/javascript" src="../js/map.js"></script>
+  <script type="text/javascript" src="../js/mainPicDeploy.js"></script>
+  </body>
+</html>

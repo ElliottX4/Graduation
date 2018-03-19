@@ -1,0 +1,158 @@
+body{
+	margin: 0;	
+}
+#carportDevice{
+	height: 100%;
+	width: 100%;
+	position: relative;
+	background-color: #E9E9E9;
+}
+#title{
+	height:20%;
+	width: 50%;
+	margin: 0 auto;
+	text-align: center;
+	position: relative;
+}
+#title1{
+	color: #55606E;
+	position: relative;
+	top: 23.6%;
+	margin: 0 auto;
+	font-family: 黑体;
+	font-size: 38px;
+	text-shadow: 1px 1px 10px #B9BAB9;
+	letter-spacing: -1px;
+}
+#title2{
+	color: #55606E;
+	position: relative;
+	top: 29%;
+	margin: 0 auto;
+	font-family: 黑体;
+	font-size: 18px;
+	text-shadow: 1px 1px 10px #B9BAB9;
+	letter-spacing: -1px;
+}
+#lable{
+	height:60%;
+	width: 50%;
+	margin: 0 auto;
+	background-color: #2E2F31;
+	border-radius: 4px;
+	color: white;
+	position: relative;
+}
+#inputLable{
+	position: relative;
+	top: 20px;
+	bottom: 0px;
+	margin: 0 auto;
+	width: 94%;
+	height: 30%;
+	border: 3px solid #24AFB2;
+	border-radius: 4px;
+}
+#textInput{
+	float: left;
+	width: 50%;
+	height: 100%;
+}
+#textInput div{
+	height: 30%;
+	width: 100%;
+}
+#textInput p{
+	margin: 9px 0 6px 0;
+	width: 40%;
+	float: left;
+	text-align:right;
+	font-size: 18px;
+	font-family: 黑体;
+}
+#textInput #carportNumber,select{
+	float: right;
+	width: 173px;
+	height: 25px;
+	margin: 6px 0; 
+	border: 1px solid #24AFB2;
+	border-radius: 4px;
+}
+#textInput #startNum,#endNum{
+	float: right;
+	width: 73px;
+	height: 25px;
+	margin: 6px 7px; 
+	border: 1px solid #24AFB2;
+	border-radius: 4px;
+}
+#textInput select{
+	background-color: #54606E;	
+}
+#buttonInput{
+	float: right;
+	width: 50%;
+	height: 100%;
+}
+#buttonInput #changebutton{
+	width: 100%;
+	height: 30%;
+}
+#buttonInput #changebutton #save{
+	cursor: pointer;
+	margin: 10px 0 0 125px;
+}
+#buttonInput #changebutton #search{
+	cursor: pointer;
+	margin: 10px 125px 0 0;
+}
+#buttonInput #changeButton input{
+	height: 40px;
+	width: 35px;
+	float: left;
+	background-color: #54606E;
+	border: 0;
+	border-radius: 4px;
+	color: white;
+}
+#buttonInput p{
+	text-align: center; 
+	margin: 5px 0;
+}
+#buttonInput .saveOrSearch{
+	width: 100px;
+	height: 28px;
+	position: relative;
+	margin-left: 110px;
+	border-radius: 4px;
+	background-color: #24AFB2;
+	border: 0;
+	color: white;
+	cursor: pointer;
+}
+#showLable{
+	position: relative;
+	top: 30px;
+	width: 95%;
+	height: 56%;
+	margin: 0 auto;
+	overflow-y: auto; 
+}
+#showLable::-webkit-scrollbar{
+	display: none;
+}
+#showLable table{
+	width: 100%;
+	background-color: #24AFB2;
+	color: white;
+	text-align: center;
+	border-radius: 4px;
+}
+#showLable th{
+	/*border: 1px solid #54606E;*/
+	background-color: #54606E;
+}
+#showLable tr{
+	background-color: #27868A;
+	height: 28px;
+}
