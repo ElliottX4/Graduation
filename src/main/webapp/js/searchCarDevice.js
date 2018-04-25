@@ -13,6 +13,7 @@ save.click(function(){
 	saveButton.css("display","");
 	searchButton.css("display","none");
 	isOnline.attr("disabled","disabled");
+	isOnline.css("color","");
 });
 search.click(function(){
 	save.css("background-color","");
@@ -20,6 +21,7 @@ search.click(function(){
 	saveButton.css("display","none");
 	searchButton.css("display","");
 	isOnline.removeAttr("disabled");
+	isOnline.css("color","white");
 });
 saveButton.click(function(){
 	var name = $("#name").val();

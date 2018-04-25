@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.superswc.DAO.SearchCarDeviceDao">
+	<insert id="save" parameterType="top.superswc.bean.SearchCarDeviceBean">
+		insert into search_device(name,ip) value(#{name},#{ip});
+	</insert>
+	<select id="searchForDevice" resultType="top.superswc.bean.SearchCarDeviceBean">
+		select * from search_device where name like #{0} and ip like #{1} and isOnline like #{2};
+	</select>
+	<select id="searchByIp" resultType="top.superswc.bean.SearchCarDeviceBean">
+		select * from search_device where ip = #{0};
+	</select>
+	<delete id="deleteById">
+		delete from search_device where id = #{id}
+	</delete>
+</mapper>

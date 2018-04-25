@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.superswc.DAO.CarportDeviceDao">
+	<insert id="save" parameterType="top.superswc.bean.CarportDeviceBean">
+		insert into carport_device(carportNumber) value(#{carportNumber});
+	</insert>
+	<select id="searchForDevice" resultType="top.superswc.bean.CarportDeviceBean">
+		select * from carport_device where carportNumber like #{0} and isOnline like #{1};
+	</select>
+	<select id="searchByNum" resultType="top.superswc.bean.CarportDeviceBean">
+		select * from carport_device where (carNumber like #{0} or carportNumber like #{0}) and isHaveCar = 1;
+	</select>
+	<select id="searchById" resultType="top.superswc.bean.CarportDeviceBean">
+		select * from carport_device where id = #{0};
+	</select>
+	<delete id="deleteById">
+		delete from carport_device where id = #{id}
+	</delete>
+</mapper>

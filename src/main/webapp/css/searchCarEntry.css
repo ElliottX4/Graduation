@@ -96,6 +96,8 @@ body{
 	height: 70%;
 	width: 50%;
 	margin: 0 auto;
+}
+#main #keyboard{
 	top: 16%;
 }
 .row{
@@ -139,6 +141,9 @@ body{
 	font-family: 黑体;
 
 }
+#main #option{
+	top:-6%;
+}
 #main #option table tr{
 	margin: 5% 0;
 	cursor: pointer;
@@ -154,4 +159,6 @@ body{
 }
 #main #map{
 	background-color: white;
+	height:90%;
+	top:10%;
 }

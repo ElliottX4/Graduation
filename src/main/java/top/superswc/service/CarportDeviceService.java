@@ -25,7 +25,7 @@ public class CarportDeviceService {
 			carportDeviceDao.save(carportDevice);
 		}
 	}
-	public List<SearchCarDeviceBean> searchForDevice(String carportNumber,int isOnline){
+	public List<CarportDeviceBean> searchForDevice(String carportNumber,int isOnline){
 		String isOnlineString;
 		if(isOnline==2){
 			isOnlineString = "%";
@@ -37,7 +37,7 @@ public class CarportDeviceService {
 		}
 		return carportDeviceDao.searchForDevice(carportNumber+"%",isOnlineString);
 	}
-	public List<SearchCarDeviceBean> searchByNum(String carNumber){
+	public List<CarportDeviceBean> searchByNum(String carNumber){
 		if(carNumber==null){
 			carNumber="";
 		}

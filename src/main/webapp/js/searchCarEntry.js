@@ -1,6 +1,7 @@
 $(function(){
 	
 });
+var ip = "172.7.2.102";
 $("#searchCarText").click(function(){
 	$(this).val("");
 	$("#listKeyboard").click();
@@ -60,22 +61,42 @@ $("#searchCarButton").click(function(){
 						if(isImageExit==true){
 							$("#listMap").click();
 							var options = {
-								sizeW: "500",
-								sizeH: "500",//静态图片的长和高
+								sizeW: "2000",
+								sizeH: "2000",//静态图片的长和高
 								mapUrl: "../pic/mainPic.jpg",//图片的路径
 								domId: "map"//div的id
 							};
 							map.initMap(options);//初始化地图
 							var id = $(this).parent().attr("val");
-							//map.getPath(id);//渲染得到路径
+							var pathData = {
+								id: id,
+								ip: ip
+							};
+							//渲染得到路径
+							var list;
+							$.ajax({
+								url: "/GraduationProject/path/getPath",
+								type: "GET",
+								dataType: "json",
+								data: pathData,
+								success: function(result){
+									list = result.list;
+									var pointList = [];
+									list.forEach(function(val){
+										pointList.push([val.x,val.y]);
+									});
+									map.draw(pointList);
+								}
+							});
 						}else{
-							alert("没有找到车辆，请重试");
+							alert("管理端未配置地图");
 							$("#listKeyboard").click();
 						}
 					});
 				}else{
 					alert("寻车失败");
 				}
+				return result;
 			}
 		});
 	}

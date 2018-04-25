@@ -22,12 +22,14 @@ public class SearchCarDeviceService {
 		searchCarDeviceDao.save(searchCarDeviceBean);
 	}
 	public List<SearchCarDeviceBean> searchForDevice(String name,String ip,int isOnline){
-		if(name==null||"".equals(name)){
-			name = "%%";
+		if(name==null){
+			name = "";
 		}
-		if(ip==null||"".equals(ip)){
-			ip="%%";
+		name = "%"+name+"%";
+		if(ip==null){
+			ip="";
 		}
+		ip = "%"+ip+"%";
 		String isOnlineString;
 		if(isOnline==2){
 			isOnlineString = "%";

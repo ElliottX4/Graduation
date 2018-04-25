@@ -44,7 +44,7 @@ public class CarportDeviceAction {
 	@ResponseBody
 	public String searchForDevice(CarportDeviceBean carportDeviceBean){
 		try {
-			List<SearchCarDeviceBean> list = carportDeviceService.searchForDevice(
+			List<CarportDeviceBean> list = carportDeviceService.searchForDevice(
 					carportDeviceBean.getCarportNumber(),
 					carportDeviceBean.getIsOnline());
 			result.put("result", "success");
@@ -60,7 +60,7 @@ public class CarportDeviceAction {
 	public String searchByCarNumber(CarportDeviceBean carportDeviceBean){
 		//输入的可能是车牌也可能是车位号
 		try {
-			List<SearchCarDeviceBean> list = carportDeviceService.searchByNum(
+			List<CarportDeviceBean> list = carportDeviceService.searchByNum(
 					carportDeviceBean.getCarNumber());
 			result.put("result", "success");
 			result.put("data", list);

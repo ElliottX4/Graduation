@@ -15,6 +15,7 @@ save.click(function(){
 	saveButton.css("display","");
 	searchButton.css("display","none");
 	isOnline.attr("disabled","disabled");
+	isOnline.css("color","");
 	startNum.removeAttr("disabled")
 	endNum.removeAttr("disabled")
 });
@@ -24,6 +25,7 @@ search.click(function(){
 	saveButton.css("display","none");
 	searchButton.css("display","");
 	isOnline.removeAttr("disabled");
+	isOnline.css("color","white");
 	startNum.val("");
 	endNum.val("");
 	startNum.attr("disabled","disabled");
@@ -85,8 +87,12 @@ searchButton.click(function(){
 				$("#showLable>table>tbody").html("<tr><th>车位号</th><th>车辆车牌</th><th>在离线</th></tr>");
 				list.forEach(function(val){
 					var isOnlineString=val.isOnline==1?"在线":"离线";
+					var carNumber = val.isHaveCar==1?val.carNumber:"-";
 					$("#showLable>table>tbody").append(
-						"<tr val="+"\""+val.id+"\""+"><td>"+val.carportNumber+"</td><td>"+val.isHaveCar+"</td><td>"+isOnlineString
+						"<tr val="+"\""+val.id+"\""+">" +
+								"<td>"+val.carportNumber+"</td>" +
+								"<td>"+carNumber+"</td>" +
+								"<td>"+isOnlineString
 						+"<img src=\"..\/pic\/delete.jpg\" style=\"float: right;cursor: pointer;\">"+"</td></tr>");
 				});
 				$("#showLable>table>tbody>tr>td>img").on("click",function(){
