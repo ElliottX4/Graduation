@@ -85,6 +85,8 @@ $("#searchCarButton").click(function(){
 									list.forEach(function(val){
 										pointList.push([val.x,val.y]);
 									});
+									map.drawDevice(pointList[pointList.length-1]);
+									map.drawCarport(pointList[0]);
 									map.draw(pointList);
 								}
 							});

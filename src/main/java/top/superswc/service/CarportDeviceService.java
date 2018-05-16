@@ -46,4 +46,10 @@ public class CarportDeviceService {
 	public void delete(int id){
 		carportDeviceDao.deleteById(id);
 	}
+	public void update(CarportDeviceBean carportDeviceBean){
+		carportDeviceDao.update(carportDeviceBean);
+	}
+	public void updateCarNumber(CarportDeviceBean carportDeviceBean){
+		carportDeviceDao.updateCarNumber(carportDeviceBean);
+	}
 }

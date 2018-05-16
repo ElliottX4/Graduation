@@ -16,4 +16,6 @@ public interface CarportDeviceDao {
 	public List<CarportDeviceBean> searchByNum(String carportNumber);
 	public CarportDeviceBean searchById(int id);
 	public void deleteById(int id);
+	public void update(CarportDeviceBean carportDeviceBean);
+	public void updateCarNumber(CarportDeviceBean carportDeviceBean);
 }

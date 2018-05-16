@@ -5,4 +5,13 @@
 	<select id="getAllPoint" resultType="top.superswc.bean.PointBean">
 		select * from point;
 	</select>
+	<select id="getPointByXY" resultType="top.superswc.bean.PointBean">
+		select * from point where x=#{0} and y=#{1};
+	</select>
+	<insert keyProperty="id" id="savePint">
+		insert into point(x,y,nextIds) value(#{x},#{y},#{nextIds});
+	</insert>
+	<update id="UpdatePoint">
+		update point set nextIds = #{nextIds} where id = #{id};
+	</update>
 </mapper>

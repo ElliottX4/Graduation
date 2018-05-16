@@ -15,6 +15,12 @@
 		select * from carport_device where id = #{0};
 	</select>
 	<delete id="deleteById">
-		delete from carport_device where id = #{id}
+		delete from carport_device where id = #{0};
 	</delete>
+	<update id="update">
+		update carport_device set x=#{x},y=#{y} where id=#{id};
+	</update>
+	<update id="updateCarNumber">
+		update carport_device set carNumber=#{carNumber},isHaveCar=1 where carportNumber=#{carportNumber};
+	</update>
 </mapper>

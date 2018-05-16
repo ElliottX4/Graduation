@@ -14,4 +14,5 @@ public interface SearchCarDeviceDao {
 	public List<SearchCarDeviceBean> searchForDevice(String name,String ip,String isOnline);
 	public SearchCarDeviceBean searchByIp(String ip);
 	public void deleteById(int id);
+	public void update(SearchCarDeviceBean searchCarDeviceBean);
 }

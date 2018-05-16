@@ -27,6 +27,42 @@ public class PathService {
 	@Autowired
 	CarportDeviceDao carportDeviceDao;
 	
+	public void savePath(List<Double[]> list){
+		//点位列表最后两个由于双击是重复的
+		int id = -1;
+		//每次画线的起点连入原有的无向图
+		Double[] pointFirst = list.get(list.size()-2);
+		PointBean pointBeanFirst = new PointBean(pointFirst[0], pointFirst[1]);
+			List<PointBean> listAll = pointDao.getAllPoint();
+			if(listAll!=null){
+				double length = Double.MAX_VALUE;
+				for(PointBean t : listAll){
+					double tempFirstLength = PathTool.getLength(t, pointBeanFirst);
+					if(tempFirstLength < length){
+						length = tempFirstLength;
+						id = t.getId();
+					}
+				}
+			}
+		for(int i = list.size()-2;i>=0;i--){
+			Double[] point = list.get(i);
+			PointBean pointBean = pointDao.getPointByXY(point[0], point[1]);
+			if(pointBean != null){
+				if(id!=-1){
+					pointBean.setNextIds((pointBean.getNextIds()==null?"":pointBean.getNextIds()+",")+id);
+				}
+				pointDao.UpdatePoint(pointBean);
+			}else{
+				pointBean = new PointBean(point[0], point[1]);
+				if(id!=-1){
+					pointBean.setNextIds(String.valueOf(id));
+				}
+				pointDao.savePint(pointBean);
+			}
+			id = pointBean.getId();
+		}
+	}
+	
 	public List<PointBean> getPath(int id,String ip){
 		List<PointBean> list = pointDao.getAllPoint();
 		SearchCarDeviceBean searchCarDeviceBean = searchCarDeviceDao.searchByIp(ip);
@@ -52,9 +88,13 @@ public class PathService {
 				end = t.getId();
 			}
 		}
-		return getPathByDijkstra(start,end,list);
+		List<PointBean> resultList = new ArrayList<PointBean>();
+		resultList.add(endPointBean);
+		getPathByDijkstra(resultList,start,end,list);
+		resultList.add(startPointBean);
+		return resultList;
 	}
-	public List getPathByDijkstra(int startId,int endId,List<PointBean> list){
+	public List<PointBean> getPathByDijkstra(List<PointBean> resultList,int startId,int endId,List<PointBean> list){
  		//对list中的点进行标号
 		Map<Integer,PointBean> pointMap = new HashMap<Integer, PointBean>();
 		Map<Integer,Integer> i2idMap = new HashMap<Integer, Integer>();
@@ -91,6 +131,7 @@ public class PathService {
 				for(String s : strs){
 					int idy = Integer.valueOf(s);
 					w[id2iMap.get(idx)][id2iMap.get(idy)] = PathTool.getLength(pointX,pointMap.get(idy));
+					w[id2iMap.get(idy)][id2iMap.get(idx)] = PathTool.getLength(pointX,pointMap.get(idy));
 				}
 			}
 		}
@@ -119,7 +160,6 @@ public class PathService {
 			flag[index]=true;
 			lastIndex = index;
 		}
-		List<PointBean> resultList = new ArrayList<PointBean>();
 		int i = endi;
 		while(i!=starti){
 			resultList.add(pointMap.get(i2idMap.get(i)));

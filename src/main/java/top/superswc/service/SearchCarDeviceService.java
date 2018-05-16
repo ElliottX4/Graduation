@@ -41,4 +41,7 @@ public class SearchCarDeviceService {
 	public void delete(int id){
 		searchCarDeviceDao.deleteById(id);
 	}
+	public void update(SearchCarDeviceBean searchCarDeviceBean){
+		searchCarDeviceDao.update(searchCarDeviceBean);
+	}
 }

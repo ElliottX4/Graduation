@@ -65,4 +65,16 @@ public class SearchCarDeviceAction {
 		}
 		return gson.toJson(result);
 	}
+	@RequestMapping("/saveSearchCarPosition")
+	@ResponseBody
+	public String saveSearchCarPosition(SearchCarDeviceBean searchCarDeviceBean){
+		try {
+			searchCarDeviceService.update(searchCarDeviceBean);
+			result.put("result", "success");
+		}catch (Exception e) {
+			e.printStackTrace();
+			result.put("result", "fail");
+		}
+		return gson.toJson(result);
+	}
 }

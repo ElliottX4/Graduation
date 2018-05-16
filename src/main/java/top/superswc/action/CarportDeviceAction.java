@@ -82,4 +82,28 @@ public class CarportDeviceAction {
 		}
 		return gson.toJson(result);
 	}
+	@RequestMapping("/saveCarportPosition")
+	@ResponseBody
+	public String saveCarportPosition(CarportDeviceBean carportDeviceBean){
+		try {
+			carportDeviceService.update(carportDeviceBean);
+			result.put("result", "success");
+		}catch (Exception e) {
+			e.printStackTrace();
+			result.put("result", "fail");
+		}
+		return gson.toJson(result);
+	}
+	@RequestMapping("/saveCarNum")
+	@ResponseBody
+	public String saveCarNum(CarportDeviceBean carportDeviceBean){
+		try {
+			carportDeviceService.updateCarNumber(carportDeviceBean);
+			result.put("result", "success");
+		}catch (Exception e) {
+			e.printStackTrace();
+			result.put("result", "fail");
+		}
+		return gson.toJson(result);
+	}
 }

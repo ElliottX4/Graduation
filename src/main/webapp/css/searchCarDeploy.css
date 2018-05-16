@@ -70,6 +70,7 @@ body{
 	font-family: 黑体;
 	background-color: #24AFB2;
 	cursor: pointer;
+	z-index: 100;
 }
 #bottom{
 	height: 20%;

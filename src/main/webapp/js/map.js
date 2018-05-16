@@ -106,3 +106,67 @@ swcMap.prototype.draw = function(list){
 		});
 	this._map.addLayer(layer);
 }
+swcMap.prototype.drawDevice = function(position){
+	var style = new ol.style.Style({
+		image: new ol.style.Icon({
+			src: "../pic/searchCarDevice.jpg"
+		})
+	});
+	var source = new ol.source.Vector({
+		features: [] 
+		});
+		var feature = new ol.Feature({
+			 geometry: new ol.geom.Point(position) 
+		});
+		source.addFeature(feature);
+	var layer = new ol.layer.Vector({
+			source: source,
+			style: style
+		});
+	this._map.addLayer(layer);
+}
+swcMap.prototype.drawCarport = function(position){
+	var style = new ol.style.Style({
+		image: new ol.style.Icon({
+			src: "../pic/carport.jpg"
+		})
+	});
+	var source = new ol.source.Vector({
+		features: [] 
+		});
+		var feature = new ol.Feature({
+			 geometry: new ol.geom.Point(position) 
+		});
+		source.addFeature(feature);
+	var layer = new ol.layer.Vector({
+			source: source,
+			style: style
+		});
+	this._map.addLayer(layer);
+}
+
+swcMap.prototype.drawPoint = function(){
+    var source = new ol.source.Vector();
+    var styleFunction = function(feature) {
+    var geometry = feature.getGeometry();
+    var styles = [
+      // linestring
+      new ol.style.Style({
+        stroke: new ol.style.Stroke({
+          color: 'red',
+          width: 5
+        })
+      })
+    ];
+    return styles;
+  };
+  var vector = new ol.layer.Vector({
+    source: source,
+    style: styleFunction
+  });
+  this._map.addLayer(vector);
+  var t = this._map.addInteraction(new ol.interaction.Draw({
+    source: source,
+    type: 'LineString'
+  }));
+}
